@@ -1,0 +1,56 @@
+Thomas Boudreaux -- CSC-4310 Final Project
+	Nbody Integrator, C - Version
+
+
+Build Instructions:
+
+To compile:
+	$ make
+
+To clean:
+	$ make clean
+
+To Run:
+	$ ./Integrate </path/to/input/data> </path/to/output> ttot dt
+
+To Animate:
+	$ python pythonFiles/animateOutput.py </path/to/results/of/integration>
+
+To Make Data:
+	$ python pythonFiles/makeData.py </path/to/save/to> numbodies 
+
+
+You can run an example simulation using the autoSimulation.sh bash script,
+this script takes you through compilation, making data, calling the simulator
+and generating the animation.
+
+
+
+The input file is specified as:
+	
+an ascii integer on line one giving the number of bodies
+a new line charectar
+a binary string of 64 bit floats (doubles) for the remainder of the file
+
+when this is read it the form of this binary string is
+
+seven values total:
+	first three values are x, y, z position
+	values four, five, and six are vx, vy, vz (velocities)
+	values seven is the mass of the particle
+
+	each set of seven values speficied the initial conditions for each particle
+
+the output is of format:
+	line one has two ascii integers seperated by a comma
+	the first is the number of bodies in the system, the second is the number
+		of time steps the system was integrated for
+
+	then one new line charecter
+	then a binary string of size 7*number of bodies*timestepes for 64 bit floats
+		(doubles)
+	the form of these is the same as for the input, the only difference is that each
+		particle exists timestep times
+
+	to read in read all the particles then all the particles again (i.e. each time step
+	is stored next to each other, then the entirety of the next time step)
