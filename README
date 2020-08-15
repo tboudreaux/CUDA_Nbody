@@ -11,7 +11,7 @@ To clean:
 	$ make clean
 
 To Run:
-	$ ./Integrate </path/to/input/data> </path/to/output> ttot dt
+	$ ./bin/CUDAIntegrate </path/to/input/data> </path/to/output> ttot dt
 
 To Animate:
 	$ python pythonFiles/animateOutput.py </path/to/results/of/integration>
